@@ -28,137 +28,192 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Select all <li> elements
-    var btns = document.querySelectorAll(".navbar .menu-header-menu-container ul li a");
+// video player secript 
 
-    // Add 'active' class to the first <li> by default
-    if (btns.length > 0) {
-        btns[0].classList.add("active");
-    }
-
-    // Add click event listeners to all <li> elements
-    btns.forEach(function(e) {
-        e.addEventListener('click', function() {
-            // Remove 'active' class from all <li> elements
-            btns.forEach(function(btn) {
-                btn.classList.remove("active");
-            });
-
-            // Add 'active' class to the clicked <li> element
-            e.classList.add("active");
-        });
-    });
-});
-
-// --------member-ships--------tabs----
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
+function openFullscreen() {
+    document.getElementById('fullscreenVideoContainer').style.display = 'flex';
+    const video = document.getElementById('fullscreenVideo');
+    video.play();
 }
 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+function closeFullscreen() {
+    document.getElementById('fullscreenVideoContainer').style.display = 'none';
+    const video = document.getElementById('fullscreenVideo');
+    video.pause();
+}
 
-// -----footer-----
-var acc = document.getElementsByClassName("accordion");
-var i;
+// video player script ends
 
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
+
+//  slider script left 
+
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    gap: 20,
+    loop: true,
+    direction: "horizontal",
+    grabCursor: false,
+    mousewheelControl: false,
+    keyboardControl: false,
+    loop: true, // Enable loop mode
+    autoplay: {
+        delay: false, // Delay between slides in milliseconds (3 seconds in this example)
+        disableOnInteraction: false, // Allow manual navigation during autoplay
+    },
+    speed: 3000,
+    //     navigation: {
+    //   nextEl: ".swiper-button-next",
+    //   prevEl: ".swiper-button-prev",
+    // },
+});
+
+
+// slider script ends
+
+
+// right slider script 
+
+
+var swiper = new Swiper(".mySwipers", {
+    slidesPerView: 3,
+    gap: 20,
+    loop: true,
+    direction: "horizontal",
+    grabCursor: false,
+    mousewheelControl: false,
+    keyboardControl: false,
+    autoplay: {
+        delay: 0, // Set to 0 for continuous scrolling
+        disableOnInteraction: false, // Allow manual navigation during autoplay
+        reverseDirection: true, // Set reverseDirection to true
+    },
+    speed: 3000,
+});
+
+
+//  right slider script end 
+
+// slider client script 
+
+var swiper = new Swiper(".mySwiperclient", {
+    slidesPerView: 8,
+    loop: true,
+    direction: "horizontal",
+    grabCursor: false,
+    mousewheelControl: false,
+    keyboardControl: false,
+    loop: true, // Enable loop mode
+    autoplay: {
+        delay: false, // Delay between slides in milliseconds (3 seconds in this example)
+        disableOnInteraction: false, // Allow manual navigation during autoplay
+    },
+    speed: 4000,
+    //     navigation: {
+    //   nextEl: ".swiper-button-next",
+    //   prevEl: ".swiper-button-prev",
+    // },
+});
+
+
+//  slider client script end 
+
+//  slider script mobile 
+
+var swiper = new Swiper(".mySwipermob", {
+    slidesPerView: 2,
+    loop: true,
+    direction: "horizontal",
+    grabCursor: false,
+    mousewheelControl: false,
+    keyboardControl: false,
+    loop: true, // Enable loop mode
+    autoplay: {
+        delay: false, // Delay between slides in milliseconds (3 seconds in this example)
+        disableOnInteraction: false, // Allow manual navigation during autoplay
+    },
+    speed: 4000,
+    //     navigation: {
+    //   nextEl: ".swiper-button-next",
+    //   prevEl: ".swiper-button-prev",
+    // },
+});
+
+//  slider script mobile ends 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const paralexElements = document.querySelectorAll('#paralex');
+    const aboutclientcardSection = document.querySelector('.aboutclientcard');
+    const fixedHeight = 1000; // Fixed height for the section
+    let animationStarted = false; // Flag to track animation start
+
+    function centerElements() {
+        paralexElements.forEach(el => {
+            el.style.transform = 'translate(-50%, -50%)';
+            el.style.left = '50%';
+            el.style.top = '50%';
+        });
+    }
+
+    function spreadElements(progress) {
+        const screenWidth = window.innerWidth;
+        const screenHeight = fixedHeight; // Use the fixed height
+        paralexElements.forEach((el, index) => {
+            const angle = (index / paralexElements.length) * 2 * Math.PI;
+            const x = (screenWidth / 3.2) * Math.cos(angle) * progress;
+            const y = (screenHeight / 3) * Math.sin(angle) * progress;
+            el.style.transform = `translate(${x}px, ${y}px)`;
+            el.style.left = '42.5%';
+            el.style.top = '41%';
+        });
+    }
+
+    function handleScroll() {
+        const scrollTop = window.scrollY;
+        const sectionTop = aboutclientcardSection.offsetTop;
+        const windowHeight = window.innerHeight;
+
+        if (scrollTop + windowHeight > sectionTop - 50 && scrollTop < sectionTop + fixedHeight) {
+            const distanceInSection = Math.min(scrollTop + windowHeight - sectionTop + 50, fixedHeight);
+            const progress = Math.min(distanceInSection / fixedHeight, 1);
+            spreadElements(progress);
+            animationStarted = true;
+        } else if (scrollTop + windowHeight <= sectionTop - 50) {
+            centerElements();
+            animationStarted = false; // Reset animation flag when out of view
+        } else if (scrollTop >= sectionTop + fixedHeight) {
+            spreadElements(1); // Ensure elements are fully spread when at bottom
         }
-    });
-}
-
-// -----------------------time---------------------zone-----------------
-function updateTimeZoneStatus() {
-    const now = new Date();
-    const dayOfWeek = now.getDay(); // 0 (Sunday) to 6 (Saturday)
-    const hour = now.getHours();
-
-    // Check if it's Monday to Friday and between 9 AM to 6:00 PM (18:00)
-    if (dayOfWeek >= 1 && dayOfWeek <= 5 && hour >= 9 && hour < 18) {
-        const timeZoneDiv = document.querySelector('.time-zone');
-        const span = timeZoneDiv.querySelector('span');
-
-        span.textContent = 'Online';
-        timeZoneDiv.classList.add('online');
-    } else {
-        const timeZoneDiv = document.querySelector('.time-zone');
-        const span = timeZoneDiv.querySelector('span');
-
-        span.textContent = 'Offline';
-        timeZoneDiv.classList.remove('online');
     }
-}
 
-// Call the function initially to set the status based on current time
-updateTimeZoneStatus();
-
-// Update every minute to adjust the status dynamically
-setInterval(updateTimeZoneStatus, 60000); // Every minute (60000 milliseconds)
-
-// ---------------------------bricks--------------------------------
-document.addEventListener('DOMContentLoaded', function() {
-    const bricks = document.querySelectorAll('.breakes-section .brik');
-
-    bricks.forEach(brik => {
-        brik.style.position = 'absolute';
-        brik.style.cursor = 'grab';
-
-        brik.addEventListener('mousedown', function(event) {
-            brik.classList.add('dragging');
-            brik.style.zIndex = '1000';
-            const shiftX = event.clientX - brik.getBoundingClientRect().left;
-            const shiftY = event.clientY - brik.getBoundingClientRect().top;
-
-            function moveAt(pageX, pageY) {
-                brik.style.left = pageX - shiftX + 'px';
-                brik.style.top = pageY - shiftY + 'px';
-            }
-
-            moveAt(event.pageX, event.pageY);
-
-            function onMouseMove(event) {
-                moveAt(event.pageX, event.pageY);
-            }
-
-            document.addEventListener('mousemove', onMouseMove);
-
-            brik.addEventListener('mouseup', function() {
-                document.removeEventListener('mousemove', onMouseMove);
-                brik.classList.remove('dragging');
-                brik.style.zIndex = '';
-            }, { once: true });
-        });
-
-        brik.ondragstart = function() {
-            return false;
-        };
-    });
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call once to set initial positions
 });
+
+
+
+
+
+
+
+
+// about section end client card
+
+
+// java for brikes
+
 
 // Function to initialize animation and interaction
 function initAnimation() {
     const collection = document.getElementsByClassName("breakes");
+    if (collection.length === 0) {
+        console.error("Element with class 'breakes' not found.");
+        return;
+    }
+
     var vector = new Two.Vector();
     var entities = [];
-    var mouse;
+    let mouse; // Changed to let
     var copy = [
         "Web",
         "Branding",
@@ -167,6 +222,7 @@ function initAnimation() {
         "UI/UX Design"
     ];
 
+    // Adjust canvas size to match .breakes dimensions
     var two = new Two({
         type: Two.Types.canvas,
         width: collection[0].offsetWidth,
@@ -175,10 +231,10 @@ function initAnimation() {
     }).appendTo(collection[0]);
 
     var solver = Matter.Engine.create();
-    solver.world.gravity.y = 1;
+    solver.world.gravity.y = 0.5;
 
     var bounds = {
-        length: collection[0].offsetWidth, // Adjust to .breakes width
+        length: collection[0].offsetWidth,
         thickness: 50,
         properties: {
             isStatic: true
@@ -200,7 +256,7 @@ function initAnimation() {
         weight: 400,
         fill: "white",
         leading: two.width * 0.08 * 0.8,
-        family: "FKDisplayTrial, Arial, sans-serif", // Adjust font stack
+        family: "FKDisplayTrial, Arial, sans-serif",
         alignment: "center",
         baseline: "baseline",
         margin: {
@@ -246,6 +302,9 @@ function initAnimation() {
         vector.y = two.height + thickness / 2;
         Matter.Body.setPosition(bounds.bottom.entity, vector);
 
+        // Get screen width using jQuery
+        var screenWidth = $(window).width();
+
         for (var i = 0; i < two.scene.children.length; i++) {
             var child = two.scene.children[i];
 
@@ -256,158 +315,274 @@ function initAnimation() {
             var rectangle = child.rectangle;
             var entity = child.entity;
 
-            switch (child.text.value.toLowerCase()) {
-                case "web":
-                    rectangle.width = 258;
-                    rectangle.height = 121;
-                    Matter.Body.scale(entity, 1 / entity.scale.x, 1 / entity.scale.y);
-                    Matter.Body.scale(entity, 258, 121);
-                    entity.scale.set(258, 121);
-                    break;
-                case "branding":
-                    rectangle.width = 436;
-                    rectangle.height = 121;
-                    Matter.Body.scale(entity, 1 / entity.scale.x, 1 / entity.scale.y);
-                    Matter.Body.scale(entity, 436, 121);
-                    entity.scale.set(436, 121);
-                    break;
-                case "product":
-                    rectangle.width = 400;
-                    rectangle.height = 121;
-                    Matter.Body.scale(entity, 1 / entity.scale.x, 1 / entity.scale.y);
-                    Matter.Body.scale(entity, 400, 121);
-                    entity.scale.set(400, 121);
-                    break;
-                case "messaging":
-                    rectangle.width = 525;
-                    rectangle.height = 121;
-                    Matter.Body.scale(entity, 1 / entity.scale.x, 1 / entity.scale.y);
-                    Matter.Body.scale(entity, 525, 121);
-                    entity.scale.set(525, 121);
-                    break;
-                case "ui/ux design":
-                    rectangle.width = 538;
-                    rectangle.height = 121;
-                    Matter.Body.scale(entity, 1 / entity.scale.x, 1 / entity.scale.y);
-                    Matter.Body.scale(entity, 538, 121);
-                    entity.scale.set(538, 121);
-                    break;
+            // Define dimensions for different breakpoints
+            var dimensions = {
+                "web": { default: { width: 258, height: 121 }, 1200: { width: 220, height: 111 }, 1024: { width: 186, height: 92 }, 880: { width: 174, height: 82 }, 600: { width: 100, height: 46 } },
+                "branding": { default: { width: 436, height: 121 }, 1200: { width: 400, height: 111 }, 1024: { width: 330, height: 92 }, 880: { width: 286, height: 82 }, 600: { width: 150, height: 46 } },
+                "product": { default: { width: 400, height: 121 }, 1200: { width: 370, height: 111 }, 1024: { width: 316, height: 92 }, 880: { width: 274, height: 82 }, 600: { width: 140, height: 46 } },
+                "messaging": { default: { width: 525, height: 121 }, 1200: { width: 465, height: 111 }, 1024: { width: 360, height: 92 }, 880: { width: 296, height: 82 }, 600: { width: 170, height: 46 } },
+                "ui/ux design": { default: { width: 538, height: 121 }, 1200: { width: 480, height: 111 }, 1024: { width: 386, height: 92 }, 880: { width: 318, height: 82 }, 600: { width: 180, height: 46 } }
+            };
+
+            var word = child.text.value.toLowerCase();
+
+            // Determine the size based on the screen width
+            if (screenWidth <= 600) {
+                rectangle.width = dimensions[word][600].width;
+                rectangle.height = dimensions[word][600].height;
+            } else if (screenWidth <= 880) {
+                rectangle.width = dimensions[word][880].width;
+                rectangle.height = dimensions[word][880].height;
+            } else if (screenWidth <= 1024) {
+                rectangle.width = dimensions[word][1024].width;
+                rectangle.height = dimensions[word][1024].height;
+            } else if (screenWidth <= 1200) {
+                rectangle.width = dimensions[word][1200].width;
+                rectangle.height = dimensions[word][1200].height;
+            } else {
+                rectangle.width = dimensions[word].default.width;
+                rectangle.height = dimensions[word].default.height;
             }
+
+            Matter.Body.scale(entity, 1 / entity.scale.x, 1 / entity.scale.y);
+            Matter.Body.scale(entity, rectangle.width, rectangle.height);
+            entity.scale.set(rectangle.width, rectangle.height);
         }
     }
 
     function addSlogan() {
         var x = defaultStyles.margin.left;
-        var y = -two.height;
-
+        var y = -two.height; // Start off-screen
+    
+        // Define screen size breakpoints
+        var isSmallScreen600 = window.matchMedia("(max-width: 600px)").matches;
+        var isSmallScreen880 = window.matchMedia("(max-width: 880px)").matches;
+        var isSmallScreen1024 = window.matchMedia("(max-width: 1024px)").matches;
+        var isSmallScreen1200 = window.matchMedia("(max-width: 1200px)").matches;
+    
         for (var i = 0; i < copy.length; i++) {
             var word = copy[i];
             var group = new Two.Group();
             var text = new Two.Text(word, 0, 0, defaultStyles);
-            var rectangle = new Two.Rectangle(0, 0, text.getBoundingClientRect().width + 20, text.getBoundingClientRect().height + 20);
-
-            group.add(rectangle);
-            group.add(text);
-            group.translation.set(two.width / 2, two.height / 2);
-
-            group.noStroke().fill = "#1E1E1E";
-
-            text.fill = "white";
-
-            var entity = Matter.Bodies.rectangle(two.width / 2, two.height / 2, rectangle.width, rectangle.height);
-            Matter.Body.setInertia(entity, Infinity);
-
-            Matter.World.add(solver.world, entity);
-            group.entity = entity;
-            group.rectangle = rectangle;
-            group.text = text;
+            var rectangle;
+    
             group.isWord = true;
-
-            entities.push(group);
+    
+            // Determine styles based on word and screen size
+            var fontSize, rectWidth, rectHeight, rectRadius;
+            switch (word.toLowerCase()) {
+                case "web":
+                case "branding":
+                case "product":
+                case "messaging":
+                    fontSize = isSmallScreen600 ? 24 : isSmallScreen880 ? 46 : isSmallScreen1024 ? 56 : isSmallScreen1200 ? 72 : 82;
+                    rectWidth = isSmallScreen600 ? 100 : isSmallScreen880 ? 174 : isSmallScreen1024 ? 186 : isSmallScreen1200 ? 220 : 258;
+                    rectHeight = isSmallScreen600 ? 46 : isSmallScreen880 ? 82 : isSmallScreen1024 ? 92 : isSmallScreen1200 ? 111 : 121;
+                    rectRadius = isSmallScreen600 ? 10 : isSmallScreen880 ? 20 : isSmallScreen1024 ? 25 : 31;
+                    rectangle = new Two.RoundedRectangle(0, 0, rectWidth, rectHeight, rectRadius);
+                    text.fill = word.toLowerCase() === "product" ? "#ffffff" : "#05070F";
+                    rectangle.fill = {
+                        "web": "#FF7A00",
+                        "branding": "#2A73FF",
+                        "product": "#05070F",
+                        "messaging": "#B0BAC5"
+                    }[word.toLowerCase()];
+                    rectangle.stroke = "none"; // Remove border
+                    break;
+                case "ui/ux design":
+                    fontSize = isSmallScreen600 ? 24 : isSmallScreen880 ? 46 : isSmallScreen1024 ? 56 : isSmallScreen1200 ? 72 : 82;
+                    rectWidth = isSmallScreen600 ? 180 : isSmallScreen880 ? 318 : isSmallScreen1024 ? 386 : isSmallScreen1200 ? 480 : 538;
+                    rectHeight = isSmallScreen600 ? 46 : isSmallScreen880 ? 82 : isSmallScreen1024 ? 92 : isSmallScreen1200 ? 111 : 121;
+                    rectRadius = isSmallScreen600 ? 10 : isSmallScreen880 ? 20 : isSmallScreen1024 ? 25 : 31;
+                    rectangle = new Two.RoundedRectangle(0, 0, rectWidth, rectHeight, rectRadius);
+                    text.fill = "#05070F";
+                    rectangle.fill = "#ffffff";
+                    rectangle.stroke = "#05070F"; // Border for "ui/ux design"
+                    break;
+            }
+    
+            text.size = fontSize;
+            text.alignment = 'center';
+            text.lineheight = 12;
+            text.translation.y = isSmallScreen600 ? 10 : isSmallScreen880 ? 20 : isSmallScreen1024 ? 25 : 30; // Adjust vertical centering for different screens
+    
+            // Set different starting vertical positions for each element
+            var offsetY = -Math.random() * two.height; // Start off-screen
+    
+            var ox = x + rectangle.width / 2;
+            var oy = y + rectangle.height / 2 + offsetY;
+    
+            var ca = x + rectangle.width;
+            var cb = two.width;
+    
+            if (ca >= cb) {
+                x = defaultStyles.margin.left;
+                y += defaultStyles.leading + defaultStyles.margin.top + defaultStyles.margin.bottom;
+    
+                ox = x + rectangle.width / 2;
+                oy = y + rectangle.height / 2 + offsetY;
+            }
+    
+            group.translation.x = ox;
+            group.translation.y = oy;
+    
+            var entity = Matter.Bodies.rectangle(ox, oy, 1, 1);
+            Matter.Body.scale(entity, rectangle.width, rectangle.height);
+    
+            entity.scale = new Two.Vector(rectangle.width, rectangle.height);
+            entity.object = group;
+            entities.push(entity);
+    
+            x += rectangle.width + defaultStyles.margin.left + defaultStyles.margin.right;
+    
+            group.text = text;
+            group.rectangle = rectangle;
+            group.entity = entity;
+    
+            group.add(rectangle, text);
             two.add(group);
         }
+    
+        Matter.World.add(solver.world, entities);
     }
 
-    function update() {
-        var px = two.width / 2;
-        var py = two.height / 2;
-
-        for (var i = 0; i < entities.length; i++) {
-            var entity = entities[i].entity;
-            var group = entities[i];
-
-            var position = group.entity.position;
-
-            group.translation.set(
-                position.x,
-                position.y
-            );
-
-            group.rotation = group.entity.angle;
-        }
+    function update(frameCount, timeDelta) {
+        var allBodies = Matter.Composite.allBodies(solver.world);
+        Matter.MouseConstraint.update(mouse, allBodies);
+        Matter.MouseConstraint._triggerEvents(mouse);
 
         Matter.Engine.update(solver);
+
+        for (var i = 0; i < entities.length; i++) {
+            var entity = entities[i];
+            var body = entity.object;
+
+            body.position.x = entity.position.x;
+            body.position.y = entity.position.y;
+            body.rotation = entity.angle;
+        }
     }
 
     function createBoundary(width, height) {
-        var entity = Matter.Bodies.rectangle(0, 0, width, height, bounds.properties);
+        var rectangle = two.makeRectangle(0, 0, width, height);
+        rectangle.visible = false;
+        rectangle.entity = Matter.Bodies.rectangle(
+            rectangle.position.x,
+            rectangle.position.y,
+            width,
+            height, { isStatic: true }
+        );
+        rectangle.entity.position = rectangle.position;
 
-        return {
-            entity: entity,
-            width: width,
-            height: height
-        };
+        return rectangle;
     }
 }
 
-// -----------------parallax effect------------------
-document.addEventListener('DOMContentLoaded', function() {
-    const paralexElements = document.querySelectorAll('.paralex'); // Assuming it's a class
-    const aboutSection = document.querySelector('.about');
-
-    function centerElements() {
-        paralexElements.forEach(el => {
-            el.style.transform = 'translate(-50%, -50%)';
-            el.style.left = '50%';
-            el.style.top = '50%';
-        });
-    }
-
-    function spreadElements(progress) {
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
-
-        paralexElements.forEach((el, index) => {
-            const angle = (index / paralexElements.length) * 2 * Math.PI;
-            const x = (screenWidth / 3.2) * Math.cos(angle) * progress;
-            const y = (screenHeight / 3) * Math.sin(angle) * progress;
-
-            el.style.transform = `translate(${x}px, ${y}px)`;
-            el.style.left = '42.5%';
-            el.style.top = '41%';
-        });
-    }
-
-    function handleScroll() {
-        const scrollTop = window.scrollY;
-        const sectionTop = aboutSection.offsetTop;
-        const sectionHeight = aboutSection.offsetHeight;
-        const windowHeight = window.innerHeight;
-
-        if (scrollTop + windowHeight > sectionTop - 50 && scrollTop < sectionTop + sectionHeight) {
-            const distanceInSection = Math.min(scrollTop + windowHeight - sectionTop + 50, sectionHeight);
-            const progress = Math.min(distanceInSection / sectionHeight, 1);
-            spreadElements(progress);
-        } else if (scrollTop + windowHeight <= sectionTop - 50) {
-            centerElements();
-        } else if (scrollTop >= sectionTop + sectionHeight) {
-            spreadElements(1);
+// Intersection Observer to trigger the initialization when .breakes section is in view
+const breakesSection = document.querySelector('.breakes');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Call the initAnimation function with a 0.1 second delay
+            setTimeout(() => {
+                initAnimation();
+                // Unobserve after initializing to avoid redundant calls
+                observer.unobserve(entry.target);
+            }, 10); // 0.1 second delay
         }
-    }
+    });
+}, { threshold: 0.8 }); // Adjust threshold as needed
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Call once to set initial positions
-});
+// Start observing the .breakes section
+observer.observe(breakesSection);
+
+
+
+
+
+
+// bricks java end
+
+
+// accordin secript
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
+}
+
+// accorgin java end
+
+
+// tabs java
+
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+// tab java end
+
+
+
+// footer online ofline java
+
+// Function to update span text and pseudo-element color based on time
+function updateTimeZoneStatus() {
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0 (Sunday) to 6 (Saturday)
+    const hour = now.getHours();
+
+    // Check if it's Monday to Friday and between 9 AM to 6:00 PM (18:00)
+    if (dayOfWeek >= 1 && dayOfWeek <= 5 && hour >= 9 && hour < 18) {
+        // Update span text and add class to change pseudo-element color
+        const timeZoneDiv = document.querySelector('.time-zone');
+        const span = timeZoneDiv.querySelector('span');
+
+        span.textContent = 'Online';
+        timeZoneDiv.classList.add('online');
+    } else {
+        // Reset to Offline status if conditions are not met
+        const timeZoneDiv = document.querySelector('.time-zone');
+        const span = timeZoneDiv.querySelector('span');
+
+        span.textContent = 'Offline';
+        timeZoneDiv.classList.remove('online');
+    }
+}
+
+// Call the function initially to set the status based on current time
+updateTimeZoneStatus();
+
+// Update every minute to adjust the status dynamically
+setInterval(updateTimeZoneStatus, 60000); // Every minute (60000 milliseconds)
+
+// footer online ofline java end
+
+
+
 
 </script>
 
