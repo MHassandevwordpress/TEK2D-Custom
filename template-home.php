@@ -5,6 +5,45 @@ Template Name: Home
 get_header();
 ?>
  <div class="container">
+        <div class="section-one">
+            <div class="col">
+                <h1 class="main-heading">
+                <?php the_field('main_heading'); ?>
+                </h1>
+                <div class="video-container">
+                    <video class="video-background" autoplay loop muted playsinline>
+                        <source src="<?php the_field('hero_video'); ?>" controls loop muted
+                        autoplay
+                            type="video/webm">
+                    </video>
+                    <button class="play-button" onclick="openFullscreen()"><img
+                            src="<?php the_field('hero_video'); ?>" controls loop muted
+                            autoplay alt=""></button>
+                </div>
+
+                <div class="fullscreen-video-container" id="fullscreenVideoContainer">
+                    <button class="close-button" onclick="closeFullscreen()"><img
+                            src="<?php the_field('hero_video'); ?>" controls loop muted
+                            autoplay alt=""></button>
+                    <video class="fullscreen-video" id="fullscreenVideo" controls>
+                        <source src="<?php the_field('hero_video'); ?>" controls loop muted
+                        autoplay
+                            type="video/webm">
+                    </video>
+                </div>
+            </div>
+            <div class="para">
+                <p>
+                <?php the_field('paragraph'); ?>
+                </p>
+            </div>
+        </div>
+        <div class="scroll-section">
+            <a href="#scrolling"><img src="https://new.tek2d.com/wp-content/uploads/2024/07/Layer_1.png" alt=""></a>
+        </div>
+    </div>
+    </div>
+ <!-- <div class="container"> -->
     <div class="section-one" onload="myFunction()">
       <div class="col">
         <h1 class="main-heading">
