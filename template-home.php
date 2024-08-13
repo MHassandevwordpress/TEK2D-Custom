@@ -21,8 +21,8 @@ get_header();
                 </div>
 
                 <div class="fullscreen-video-container" id="fullscreenVideoContainer">
-                    <button class="close-button" onclick="closeFullscreen()"><img
-                            src="https://new.tek2d.com/wp-content/uploads/2024/07/close.png" alt=""></button>
+                <button class="close-button" onclick="closeFullscreen()"><img
+                src="https://new.tek2d.com/wp-content/uploads/2024/07/close.png" alt=""></button>
                     <video class="fullscreen-video" id="fullscreenVideo" controls>
                         <source src="<?php the_field('hero_video'); ?>" controls loop muted
                         autoplay
