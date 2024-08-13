@@ -16,12 +16,12 @@ get_header();
                         autoplay
                             type="video/webm">
                     </video>
-                    <button class="play-button" onclick="openFullscreen()"><img
+                    <button class="play-button" onclick="openFullscreen()" ><img
                             src="https://new.tek2d.com/wp-content/uploads/2024/07/Overlay.png" alt=""></button>
                 </div>
 
                 <div class="fullscreen-video-container" id="fullscreenVideoContainer">
-                <button class="close-button" onclick="closeFullscreen()"><img
+                <button class="close-button" onclick="closeFullscreen()" ><img
                 src="https://new.tek2d.com/wp-content/uploads/2024/07/close.png" alt=""></button>
                     <video class="fullscreen-video" id="fullscreenVideo" controls>
                         <source src="<?php the_field('hero_video'); ?>" controls loop muted
