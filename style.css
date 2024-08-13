@@ -64,24 +64,28 @@ h1,h2,h3,h4,h5,h6,span,p,li,a{
     }
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
 /* hide schroll bar form chrome safri and opera */
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
     display: none;
 }
-.work-img::-webkit-scrollbar{
+
+.work-img::-webkit-scrollbar {
     display: none;
 }
+
 /* hide from other brouser */
-html{
+html {
     scrollbar-width: none;
 }
-.work-img{
+
+.work-img {
     scrollbar-width: none;
 }
+
 /* hide schroll bar fom in */
 
 
@@ -102,7 +106,7 @@ body {
     background-color: #E8F0F9;
 }
 
-.navbar-brand{
+.navbar-brand {
     display: inline-block;
 }
 
@@ -111,14 +115,17 @@ body {
     font-size: 42px;
     color: #283646;
     top: 30px;
-    left: -100%; /* Start off-screen */
+    left: -100%;
+    /* Start off-screen */
     opacity: 0;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.navbar-brand:hover .logo-hover-text p{
-    left: 6%; /* Final position */
-    transform: translateX(0); /* Ensure no additional movement */
+.navbar-brand:hover .logo-hover-text p {
+    left: 6%;
+    /* Final position */
+    transform: translateX(0);
+    /* Ensure no additional movement */
     opacity: 1;
 }
 
@@ -135,6 +142,7 @@ body {
     font-size: 16px;
     font-weight: 500;
 }
+
 ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
     margin: auto;
     background: #fff;
@@ -151,7 +159,7 @@ ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
     padding: 12px 25px 11px 26px !important;
 }
 
-.nav-item{
+.nav-item {
     margin-right: 2px;
 }
 
@@ -160,7 +168,7 @@ ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
     color: #fff;
 }
 
-.nav-item a.nav-link.active{
+.nav-item a.nav-link.active {
     background-color: #000;
     color: #fff;
 }
@@ -388,7 +396,8 @@ button.close-button img {
     width: 500px;
     height: 200px;
 }
-.boxes-1 h3{
+
+.boxes-1 h3 {
     font-size: 72px;
     text-align: center;
 }
@@ -477,7 +486,7 @@ button.close-button img {
 .box12 {
     position: relative;
     left: 54px;
-}             
+}
 
 .box11 {
     position: relative;
@@ -1214,14 +1223,40 @@ button.close-button img {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* media querry  */
 
 @media screen and (max-width: 1440px) {
-
-    .container{
-        padding: 0px;
-        margin: 0px;
-    }
 
     .main-heading {
         font-size: 150px;
@@ -1287,10 +1322,6 @@ button.close-button img {
         right: -45px;
     }
 
-    .text {
-        width: 100%;
-    }
-
     .faq-bg {
         margin: 0px -80px 0px -80px;
         padding: 0px 80px 60px 80px;
@@ -1344,7 +1375,7 @@ button.close-button img {
         line-height: 132px;
     }
 
-    .video-container{
+    .video-container {
         width: 330px;
         top: -405px;
         right: -745px;
@@ -1734,23 +1765,8 @@ button.close-button img {
         font-size: 65px;
     }
 
-    .new-row {
-        padding: 98px 50px 0px 50px;
-    }
-
-    .text h4 {
-        font-size: 16px;
-    }
-
-    .breakess {
-        margin-bottom: 0px;
-    }
-
     .breakes {
-        margin-bottom: 66px;
-        height: 666px;
-        margin-top: -666px;
-        padding: 0px 0px 0px 0px !important;
+        padding: 70px 80px 170px 68px;
     }
 
     .marquee span {
@@ -1824,6 +1840,7 @@ button.close-button img {
         height: 100vh;
         justify-content: start;
     }
+
     a.nav-link {
         border-radius: 0px !important;
         margin: 0px;
@@ -1839,6 +1856,7 @@ button.close-button img {
         width: 100%;
         text-align: center;
     }
+
     .header-button {
         margin: 0;
         position: absolute;
@@ -1985,10 +2003,6 @@ button.close-button img {
 
     .img-text h3 {
         font-size: 42px;
-    }
-
-    .breakess {
-        height: 500px;
     }
 
     .faq h3 {
@@ -2754,6 +2768,7 @@ button.close-button img {
     .container {
         PADDING: 0;
     }
+
     .main-heading {
         font-size: 44px;
         line-height: 45px;
@@ -2769,235 +2784,281 @@ button.close-button img {
     .para p {
         font-size: 12px;
     }
+
     .swiper-slide {
         margin-right: 10px;
     }
+
     .swiper-slide img {
         height: 159px;
     }
+
     .client-heading {
         font-size: 12px;
     }
+
     .faq h3 {
         font-size: 40px;
     }
+
     .accordion {
         padding: 16px 26px 12px 21px;
         font-size: 12px;
     }
+
     .faq p {
         font-size: 12px;
         padding: 0px 20px 10px 3px;
     }
+
     .marquee span {
         font-size: 56px;
     }
+
     .text-part h3 {
         font-size: 23px;
     }
+
     .before-img::before {
         width: 86px;
         height: 66px;
         margin: -24px 0px 0px 63px;
     }
+
     .box-1 {
         padding: 25px 22px;
     }
+
     .mycolmob {
         padding: 0px 0px 0px 10px;
     }
+
     .footer-text h6 {
         font-size: 130px;
         bottom: -220px;
     }
 }
+
 @media screen and (max-width: 415px) {
     .main-heading {
         font-size: 41px;
     }
+
     .video-container {
         right: -58%;
         width: 128px;
     }
+
     .sliders-headings {
         font-size: 40px;
     }
+
     .aboutus-mobile h3 {
         font-size: 30px;
     }
+
     .about-p-mobile {
         font-size: 12px;
         width: 265px;
     }
+
     .how-it-works-heading {
         font-size: 35px;
     }
+
     .mobile-boxes .boxes {
         width: 240px;
     }
+
     .icon-boxes h3 {
         font-size: 22px;
     }
+
     .icon-boxes p {
         font-size: 14px;
     }
+
     .pricing-section h3 {
         font-size: 32px;
     }
+
     .pricing-section p {
         width: 285px;
     }
+
     .new-row {
         padding: 40px 20px 0px 20px;
     }
+
     .tek2d-text {
         width: 33%;
         padding: 0px 0px 0px 15px;
     }
+
     .text h4 {
         font-size: 12px;
     }
+
     .breakess {
         height: 440px;
         border-radius: 23px;
     }
+
     .text-part h3 {
         font-size: 20px;
     }
+
     .box-1 h3 {
         font-size: 20px !important;
         padding-top: 12px;
     }
+
     .box-element img {
         width: 90px;
         height: 88px;
     }
+
     .box-1 {
         height: 146px;
     }
+
     .footer-text h6 {
         font-size: 115px;
         margin-top: -323px;
     }
 }
+
 @media screen and (max-width: 400px) {
     a.navbar-brand img {
         height: 28px;
     }
+
     .main-heading {
         font-size: 38px;
     }
+
     .aboutus-mobile h3 {
         font-size: 28px;
     }
+
     .how-it-works-heading {
         font-size: 30px;
     }
+
     .how-it-works {
         padding: 20px;
         border-radius: 23px;
     }
+
     .work {
         padding: 18px 26px 13px 26px;
     }
+
     .pricing-section h3 {
         font-size: 28px;
     }
+
     .pricing-section p {
         width: 250px;
         font-size: 12px;
     }
+
     .img-text h3 {
         font-size: 36px;
     }
+
     .box-1 p {
         font-size: 10px;
     }
+
     .box-1 h3 {
         font-size: 18px !important;
     }
+
     .text-part {
         padding: 0px 30px 35px 30px;
     }
+
     .text-carousels {
         margin: -60px -30px 0px -30px;
     }
+
     .footer-section {
         margin: -15px -30px 0px -30px;
         padding: 86px 30px 0px 30px;
     }
+
     .footer-text h6 {
         font-size: 105px;
         margin-top: -330px;
     }
 }
+
 @media screen and (max-width: 361px) {
     .main-heading {
         font-size: 30px;
         line-height: 40px;
         letter-spacing: -1px;
     }
+
     .video-container {
         top: -128px;
         right: -59%;
         width: 104px;
         height: 36px;
     }
+
     .sliders-headings {
         font-size: 30px;
     }
+
     .aboutus-mobile h3 {
         font-size: 22px;
     }
+
     .about-p-mobile {
         font-size: 10px;
         width: 175px;
     }
+
     .text h4 {
         font-size: 10px;
     }
+
     .breakess {
         height: 400px;
     }
+
     .before-img::before {
         width: 75px;
         height: 66px;
         margin: -24px 0px 0px 53px;
     }
+
     .box-1 h3 {
         font-size: 16px !important;
     }
+
     .box-1 p {
         font-size: 8px;
     }
+
     .box-1 {
         padding: 20px 20px;
     }
+
     .box-1 {
         height: 124px;
     }
+
     .footer-text h6 {
         font-size: 92px;
         margin-top: -340px;
         bottom: -226px;
     }
+
     .icon-boxes {
         width: 220px;
         margin: auto;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
